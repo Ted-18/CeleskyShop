@@ -13,10 +13,10 @@ import fr.ted.celeskyshop.Main;
 
 public class AdminInformation implements Listener {
 
-	private Main main;
+	private static Main main;
 	
 	public AdminInformation(Main main) {
-		this.main = main;
+		AdminInformation.main = main;
 	}
 	
 	@EventHandler

@@ -2,14 +2,26 @@
 admin:
     checkUUID: "celeskyshop.admin.uuid"
 
-#Your NPC's UUID
+#Sign buy system
+signs:
+    settings:
+        world: "world"
+        signTitle: "[AchatShop]"
+    ranks:
+        level1: "Ramasseur"
+        level2: "Revendeur"
+        level3: "Grossiste"
+        level4: "Courtier"
+        level5: "Magnat"
+
+#NPC settings
 sellers:
     blocks: 
-        UUID: "3c64d8d8-34c5-4c55-9776-6a117244f438"
-        shopName: "§a§lVendeur de blocks"
-        shopPermission: ""
-        shopLevel1: ""
-        shopLevel2: ""
-        shopLevel3: ""
-        shopLevel4: ""
-        shopLevel5: ""
+        UUID: "95f5e9e3-1203-24cb-af42-4db6ae6b1f74"
+        shopName: "§a§lVendeur de blocs"
+        shopPermission: "celeskyshop.blocks"
+        shopLevel1: "celeskyshop.blocks.level1"
+        shopLevel2: "celeskyshop.blocks.level2"
+        shopLevel3: "celeskyshop.blocks.level3"
+        shopLevel4: "celeskyshop.blocks.level4"
+        shopLevel5: "celeskyshop.blocks.level5"

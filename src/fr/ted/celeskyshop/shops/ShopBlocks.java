@@ -15,13 +15,20 @@ public class ShopBlocks implements Listener {
 	
 	
 	public static void shopItemBlocks(Main main, Player player) {
-		String shopName = main.getConfig().getString("sellers.blocks.shopName");
-		Inventory shopItem = Bukkit.createInventory(null, 54, shopName);
-		Economy economy = VaultInitialisation.getEconomy();
 		
+		//Get Shop name from config
+		String shopName = main.getConfig().getString("sellers.blocks.shopName");
+		
+		//Create chest shop panel
+		Inventory shopItem = Bukkit.createInventory(null, 54, shopName);
+		
+		//Get economy informations
+		Economy economy = VaultInitialisation.getEconomy();
 		String playerMoney = String.valueOf(economy.getBalance(player));
 		
+		//Set Emerald item
 		shopItem.setItem(49, ShopItem.addItemShop(Material.EMERALD, 1, "§aTon argent: §e" + playerMoney, null, 0, 0));
+		
 		
 		//Permission level 1
 		String shopLevel1 = main.getConfig().getString("sellers.blocks.shopLevel1");
@@ -57,7 +64,7 @@ public class ShopBlocks implements Listener {
 			shopItem.setItem(13, ShopItem.addItemShop(Material.STONE, 1, null, null, 2, 1));
 		}
 		else {
-			shopItem.setItem(9, ShopItem.addItemShop(Material.LIME_TERRACOTTA, 1, "§aNiveau 2", "§7Status: §cBloqué", 0, 0));
+			shopItem.setItem(9, ShopItem.addItemShop(Material.YELLOW_TERRACOTTA, 1, "§eNiveau 2", "§7Status: §cBloqué", 0, 0));
 			
 			shopItem.setItem(10, ShopItem.addItemShop(Material.BARRIER, 1, "§cBloqué", null, 0, 0));
 			shopItem.setItem(11, ShopItem.addItemShop(Material.BARRIER, 1, "§cBloqué", null, 0, 0));
@@ -78,7 +85,7 @@ public class ShopBlocks implements Listener {
 			shopItem.setItem(19, ShopItem.addItemShop(Material.PODZOL, 1, null, null, 2, 1));
 		}
 		else {
-			shopItem.setItem(18, ShopItem.addItemShop(Material.ORANGE_TERRACOTTA, 1, "§aNiveau 3", "§7Status: §cBloqué", 0, 0));
+			shopItem.setItem(18, ShopItem.addItemShop(Material.ORANGE_TERRACOTTA, 1, "§6Niveau 3", "§7Status: §cBloqué", 0, 0));
 			
 			shopItem.setItem(19, ShopItem.addItemShop(Material.BARRIER, 1, "§cBloqué", null, 0, 0));
 			shopItem.setItem(20, ShopItem.addItemShop(Material.BARRIER, 1, "§cBloqué", null, 0, 0));
@@ -102,7 +109,7 @@ public class ShopBlocks implements Listener {
 			shopItem.setItem(32, ShopItem.addItemShop(Material.GLOWSTONE, 1, null, null, 2, 1));
 		}
 		else {
-			shopItem.setItem(27, ShopItem.addItemShop(Material.RED_TERRACOTTA, 1, "§aNiveau 4", "§7Status: §cBloqué", 0, 0));
+			shopItem.setItem(27, ShopItem.addItemShop(Material.RED_TERRACOTTA, 1, "§cNiveau 4", "§7Status: §cBloqué", 0, 0));
 			
 			shopItem.setItem(28, ShopItem.addItemShop(Material.BARRIER, 1, "§cBloqué", null, 0, 0));
 			shopItem.setItem(29, ShopItem.addItemShop(Material.BARRIER, 1, "§cBloqué", null, 0, 0));
@@ -122,7 +129,7 @@ public class ShopBlocks implements Listener {
 			shopItem.setItem(37, ShopItem.addItemShop(Material.SOUL_SAND, 1, null, null, 2, 1));
 		}
 		else {
-			shopItem.setItem(36, ShopItem.addItemShop(Material.BROWN_TERRACOTTA, 1, "§aNiveau 5", "§7Status: §cBloqué", 0, 0));
+			shopItem.setItem(36, ShopItem.addItemShop(Material.BROWN_TERRACOTTA, 1, "§4Niveau 5", "§7Status: §cBloqué", 0, 0));
 			
 			shopItem.setItem(37, ShopItem.addItemShop(Material.BARRIER, 1, "§cBloqué", null, 0, 0));
 			shopItem.setItem(38, ShopItem.addItemShop(Material.BARRIER, 1, "§cBloqué", null, 0, 0));
@@ -135,6 +142,7 @@ public class ShopBlocks implements Listener {
 		}
 		
 		
+		//Open chest shop panel to player
 		player.openInventory(shopItem);
 	}
 

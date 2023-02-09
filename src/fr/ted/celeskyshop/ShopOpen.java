@@ -45,12 +45,10 @@ public class ShopOpen implements Listener {
 					return;
 				}
 				
-				
 				ShopBlocks.shopItemBlocks(main, player);
 				
 			}
-				
+	
 		}
-		
 	}
 }

@@ -12,7 +12,7 @@ public class VaultInitialisation {
 	
 	
 	public static void vaultInit(Main main) {
-		if (!setupEconomy(main) ) {
+		if (!setupEconomy(main)) {
 			Bukkit.getLogger().severe("[CeleskyShop] Disabled due to no Vault dependency found!");
             main.getServer().getPluginManager().disablePlugin(main);
             return;

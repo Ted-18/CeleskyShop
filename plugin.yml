@@ -4,7 +4,9 @@ author: Ted
 main: fr.ted.celeskyshop.Main
 api-version: 1.19
 
-depend: [Vault]
+depend:
+    - Vault
+    - LuckPerms
 
 commands:
     shop-blocks:

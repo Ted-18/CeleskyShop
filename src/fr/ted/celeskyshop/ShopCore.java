@@ -71,6 +71,7 @@ public class ShopCore implements Listener {
 			if(current.getItemMeta().getDisplayName().contains("§6Niveau 3")) return;
 			if(current.getItemMeta().getDisplayName().contains("§cNiveau 4")) return;
 			if(current.getItemMeta().getDisplayName().contains("§4Niveau 5")) return;
+			if(current.getItemMeta().getDisplayName().contains("§cBloqué")) return;
 			if(current.getItemMeta().getDisplayName().contains("§aTon argent: §e")) return;
 			
 			player.closeInventory();
