@@ -1,0 +1,13 @@
+name: CeleskyShop
+version: 0.1.0
+author: Ted
+main: fr.ted.celeskyshop.Main
+api-version: 1.19
+
+depend: [Vault]
+
+commands:
+    shop-blocks:
+        description: Shop de tous les blocks.
+        permission: celesky.shop.command.blocks
+        

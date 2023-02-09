@@ -1,0 +1,15 @@
+#You can scan UUID of entity with nether star
+admin:
+    checkUUID: "celeskyshop.admin.uuid"
+
+#Your NPC's UUID
+sellers:
+    blocks: 
+        UUID: "3c64d8d8-34c5-4c55-9776-6a117244f438"
+        shopName: "§a§lVendeur de blocks"
+        shopPermission: ""
+        shopLevel1: ""
+        shopLevel2: ""
+        shopLevel3: ""
+        shopLevel4: ""
+        shopLevel5: ""

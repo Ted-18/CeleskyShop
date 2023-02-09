@@ -1,0 +1,33 @@
+package fr.ted.celeskyshop;
+
+import org.bukkit.Bukkit;
+import org.bukkit.plugin.java.JavaPlugin;
+
+import fr.ted.celeskyshop.admin.AdminInformation;
+import fr.ted.celeskyshop.dependencies.VaultInitialisation;
+import fr.ted.celeskyshop.system.ConfigInitialisation;
+
+public class Main extends JavaPlugin {
+
+	
+	
+	@Override
+	public void onEnable() {
+		VaultInitialisation.vaultInit(this);
+		ConfigInitialisation.configInit(this);
+		
+		getServer().getPluginManager().registerEvents(new ShopCore(this), this);
+		getServer().getPluginManager().registerEvents(new ShopOpen(this), this);
+		getServer().getPluginManager().registerEvents(new AdminInformation(this), this);
+		
+		Bukkit.getLogger().info("[CeleskyShop] Plugin loaded");
+	}
+	
+
+	@Override
+	public void onDisable() {
+		Bukkit.getLogger().info("[CeleskyShop] Plugin unloaded");
+	}
+	
+	
+}
