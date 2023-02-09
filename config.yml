@@ -1,12 +1,15 @@
-#You can scan UUID of entity with nether star
+# You can scan UUID of entity with nether star
 admin:
     checkUUID: "celeskyshop.admin.uuid"
 
-#Sign buy system
+# Sign buy system
 signs:
     settings:
         world: "world"
         signTitle: "[AchatShop]"
+    # You need to create on LuckPerm plugins 5 groups
+    # Your groups if shop:<group>
+    # Example : shop:ramasseur
     ranks:
         level1: "Ramasseur"
         level2: "Revendeur"
@@ -14,7 +17,7 @@ signs:
         level4: "Courtier"
         level5: "Magnat"
 
-#NPC settings
+# NPC settings
 sellers:
     blocks: 
         UUID: "95f5e9e3-1203-24cb-af42-4db6ae6b1f74"

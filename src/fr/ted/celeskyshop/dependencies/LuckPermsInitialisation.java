@@ -1,10 +1,13 @@
 package fr.ted.celeskyshop.dependencies;
 
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.RegisteredServiceProvider;
 
 import fr.ted.celeskyshop.Main;
 import net.luckperms.api.LuckPerms;
+import net.luckperms.api.model.user.User;
+import net.luckperms.api.node.Node;
 
 
 public class LuckPermsInitialisation {
@@ -40,4 +43,19 @@ public class LuckPermsInitialisation {
 	public static LuckPerms getLuckPerms() {
         return luckPermsPlugin;
     }
+	
+	
+	public static void addGroup(Player player, String permission) {
+		User user = luckPermsPlugin.getPlayerAdapter(Player.class).getUser(player);
+		
+		// Add the permission
+	    user.data().add(Node.builder("group." + permission).build());
+
+	    // Now we need to save changes.
+	    luckPermsPlugin.getUserManager().saveUser(user);
+	}
+	
+	public static boolean isPlayerInGroup(Player player, String group) {
+	    return player.hasPermission("group." + group);
+	}
 }

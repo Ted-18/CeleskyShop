@@ -7,6 +7,8 @@ import fr.ted.celeskyshop.admin.AdminInformation;
 import fr.ted.celeskyshop.dependencies.LuckPermsInitialisation;
 import fr.ted.celeskyshop.dependencies.VaultInitialisation;
 import fr.ted.celeskyshop.system.ConfigInitialisation;
+import net.luckperms.api.LuckPerms;
+import net.luckperms.api.model.group.Group;
 
 public class Main extends JavaPlugin {
 
@@ -25,7 +27,6 @@ public class Main extends JavaPlugin {
 		getServer().getPluginManager().registerEvents(new SignPermission(this), this);
 		
 		Bukkit.getLogger().info("[CeleskyShop] Plugin loaded");
-		
 		
 	}
 	
