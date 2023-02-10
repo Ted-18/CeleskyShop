@@ -7,8 +7,10 @@ import org.bukkit.Bukkit;
 import fr.ted.celeskyshop.Main;
 
 public class ConfigInitialisation {
-
+	
 	public static void configInit(Main main) {
+		main.saveDefaultConfig(); 
+		
 		if (!main.getDataFolder().exists()) {
 			main.getDataFolder().mkdirs(); 
 		} 

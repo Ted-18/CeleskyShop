@@ -10,7 +10,6 @@ import org.bukkit.event.player.PlayerInteractEvent;
 
 import fr.ted.celeskyshop.dependencies.LuckPermsInitialisation;
 import fr.ted.celeskyshop.dependencies.VaultInitialisation;
-import net.luckperms.api.LuckPerms;
 import net.milkbowl.vault.economy.Economy;
 
 public class SignPermission implements Listener {
@@ -36,6 +35,8 @@ public class SignPermission implements Listener {
 		String level3 = main.getConfig().getString("signs.ranks.level3");
 		String level4 = main.getConfig().getString("signs.ranks.level4");
 		String level5 = main.getConfig().getString("signs.ranks.level5");
+		
+		if(block == null) return;
 		
 		//Verify world name
 		if(player.getLocation().getWorld().getName().equals(worldName) != true) return;

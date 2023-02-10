@@ -13,7 +13,17 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import fr.ted.celeskyshop.dependencies.VaultInitialisation;
+import fr.ted.celeskyshop.shops.ShopAdventurer;
+import fr.ted.celeskyshop.shops.ShopAlchemist;
+import fr.ted.celeskyshop.shops.ShopBlacksmith;
 import fr.ted.celeskyshop.shops.ShopBlocks;
+import fr.ted.celeskyshop.shops.ShopButcher;
+import fr.ted.celeskyshop.shops.ShopCarpenter;
+import fr.ted.celeskyshop.shops.ShopEngineer;
+import fr.ted.celeskyshop.shops.ShopFarmer;
+import fr.ted.celeskyshop.shops.ShopHero;
+import fr.ted.celeskyshop.shops.ShopMagician;
+import fr.ted.celeskyshop.shops.ShopMiner;
 import net.milkbowl.vault.economy.Economy;
 
 public class ShopCore implements Listener {
@@ -28,9 +38,19 @@ public class ShopCore implements Listener {
 	public boolean shopVerification(String title) {
 		
 		//List of shops
-		String[] shopList = new String[1];
-		shopList[0] = main.getConfig().getString("sellers.blocks.shopName");
-		
+		String[] shopList = new String[11];
+		shopList[0] = main.getConfig().getString("sellers.Blocks.shopName");
+		shopList[1] = main.getConfig().getString("sellers.Blacksmith.shopName");
+		shopList[2] = main.getConfig().getString("sellers.Carpenter.shopName");
+		shopList[3] = main.getConfig().getString("sellers.Farmer.shopName");
+		shopList[4] = main.getConfig().getString("sellers.Butcher.shopName");
+		shopList[5] = main.getConfig().getString("sellers.Miner.shopName");
+		shopList[6] = main.getConfig().getString("sellers.Magician.shopName");
+		shopList[7] = main.getConfig().getString("sellers.Engineer.shopName");
+		shopList[8] = main.getConfig().getString("sellers.Adventurer.shopName");
+		shopList[9] = main.getConfig().getString("sellers.Hero.shopName");
+		shopList[10] = main.getConfig().getString("sellers.Alchemist.shopName");
+
 		
 		//Verification
 		for (String shopName : shopList) {
@@ -62,6 +82,9 @@ public class ShopCore implements Listener {
 		//If chest is a shop
 		if(shopVerification(inventory.getTitle())) {
 			
+			String originalShopTitle = inventory.getTitle();
+			
+			
 			event.setCancelled(true);
 			
 			//Verification
@@ -80,7 +103,7 @@ public class ShopCore implements Listener {
 			Inventory shopSelectedItem = Bukkit.createInventory(null, 54, "§aItem " + current.getType().toString());
 			
 			//Money Emerald
-			shopSelectedItem.setItem(49, ShopItem.addItemShop(Material.EMERALD, 1, "§aTon argent: §e" + playerMoney, null, 0, 0));
+			shopSelectedItem.setItem(49, ShopItem.addItemShop(Material.EMERALD, 1, "§aTon argent: §e" + playerMoney, "§7Shop: " + originalShopTitle, 0, 0));
 			
 			//Item to sell
 			shopSelectedItem.setItem(13, ShopItem.addItemShop(current.getType(), 1, null, null, 0, 0));
@@ -127,13 +150,14 @@ public class ShopCore implements Listener {
 			player.openInventory(shopSelectedItem);
 			
 		}
-		else if (inventory.getTitle().toString().equals("§aItem " + inventory.getItem(13).getType().toString())) {
+		else if (inventory.getTitle().equals("§aItem " + inventory.getItem(13).getType().toString())) {
 			
 			event.setCancelled(true);
 			
 			//Get Emeral money informations
 			ItemStack playerMoneyEmerald = inventory.getItem(49);
 			ItemMeta playerMoneyEmeraldMeta = playerMoneyEmerald.getItemMeta();
+			String originalShopTitle = playerMoneyEmeraldMeta.getLore().get(0);
 			
 			
 			//If Buy Terracotta is clicked
@@ -220,9 +244,70 @@ public class ShopCore implements Listener {
 			if (current.getItemMeta().getDisplayName().equals("§7Retour")) {
 				player.closeInventory();
 				
-				ShopBlocks.shopItemBlocks(main, player);
+				openShop(main, player, originalShopTitle);
+				
 			}
 			
 		}
+		
 	}
+	
+	public void openShop(Main main, Player player, String shopName) {
+		
+		String OriginalShopName = shopName.replace("§7Shop: ", "");
+		
+		//List of shops
+		String[] shopList = new String[11];
+		shopList[0] = main.getConfig().getString("sellers.Blocks.shopName");
+		shopList[1] = main.getConfig().getString("sellers.Blacksmith.shopName");
+		shopList[2] = main.getConfig().getString("sellers.Carpenter.shopName");
+		shopList[3] = main.getConfig().getString("sellers.Farmer.shopName");
+		shopList[4] = main.getConfig().getString("sellers.Butcher.shopName");
+		shopList[5] = main.getConfig().getString("sellers.Miner.shopName");
+		shopList[6] = main.getConfig().getString("sellers.Magician.shopName");
+		shopList[7] = main.getConfig().getString("sellers.Engineer.shopName");
+		shopList[8] = main.getConfig().getString("sellers.Adventurer.shopName");
+		shopList[9] = main.getConfig().getString("sellers.Hero.shopName");
+		shopList[10] = main.getConfig().getString("sellers.Alchemist.shopName");
+		
+		if(OriginalShopName.equals(shopList[0])) {
+			ShopBlocks.shopItemBlocks(main, player);
+		}
+		else if(OriginalShopName.equals(shopList[1])) {
+			ShopBlacksmith.shopItemBlacksmith(main, player);
+		}
+		else if(OriginalShopName.equals(shopList[2])) {
+			ShopCarpenter.shopItemCarpenter(main, player);
+		}
+		else if(OriginalShopName.equals(shopList[3])) {
+			ShopFarmer.shopItemFarmer(main, player);
+		}
+		else if(OriginalShopName.equals(shopList[4])) {
+			ShopButcher.shopItemButcher(main, player);
+		}
+		else if(OriginalShopName.equals(shopList[5])) {
+			ShopMiner.shopItemMiner(main, player);
+		}
+		else if(OriginalShopName.equals(shopList[6])) {
+			ShopMagician.shopItemMagician(main, player);
+		}
+		else if(OriginalShopName.equals(shopList[7])) {
+			ShopEngineer.shopItemEngineer(main, player);
+		}
+		else if(OriginalShopName.equals(shopList[8])) {
+			ShopAdventurer.shopItemAdventurer(main, player);
+		}
+		else if(OriginalShopName.equals(shopList[9])) {
+			ShopHero.shopItemHero(main, player);
+		}
+		else if(shopName.equals(shopList[10])) {
+			ShopAlchemist.shopItemAlchemist(main, player);
+		}
+		else {
+			player.sendMessage("§8[§bCelesky Shop§8] §7Veuillez informer un développeur que le shop §c" + shopName + " §7n'as pas été ajouté à §cShopCore.openShop§7.");
+		}
+		
+	}
+	
+	
 }
