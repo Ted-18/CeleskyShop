@@ -10,7 +10,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 public class ShopItem implements Listener {
 
 	
-	public static ItemStack addItemShop(Material material, int amout, String name, String lore, int prixAchat, int prixVente) {
+	public static ItemStack addItemShop(Material material, int amout, String name, String lore, double e, double d) {
 			
 			ItemStack item = new ItemStack(material, amout);
 			
@@ -19,14 +19,14 @@ public class ShopItem implements Listener {
 			if(name != null) itemMeta.setDisplayName(name);
 			if(lore != null) itemMeta.setLore(Arrays.asList(lore));
 				
-			if(prixAchat != 0 && prixVente != 0) {
-				itemMeta.setLore(Arrays.asList("§7Achat: §a" + prixAchat, "§7Vente: §c" + prixVente));
+			if(e != 0 && d != 0) {
+				itemMeta.setLore(Arrays.asList("§7Achat: §a" + e, "§7Vente: §c" + d));
 			}
-			else if(prixVente != 0) {
-				itemMeta.setLore(Arrays.asList("§7Vente: §c" + prixVente));
+			else if(d != 0) {
+				itemMeta.setLore(Arrays.asList("§7Vente: §c" + d));
 			}
-			else if(prixAchat != 0) {
-				itemMeta.setLore(Arrays.asList("§7Achat: §a" + prixAchat));
+			else if(e != 0) {
+				itemMeta.setLore(Arrays.asList("§7Achat: §a" + e));
 			}
 			
 			item.setItemMeta(itemMeta);

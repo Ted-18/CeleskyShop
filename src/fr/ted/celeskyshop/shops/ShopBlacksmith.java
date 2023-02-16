@@ -34,11 +34,10 @@ public class ShopBlacksmith implements Listener {
 		String shopLevel1 = main.getConfig().getString("sellers.Blacksmith.shopLevel1");
 		if(player.hasPermission(shopLevel1) == true) {
 			shopItem.setItem(0, ShopItem.addItemShop(Material.LIME_TERRACOTTA, 1, "§aNiveau 1", "§7Status: §aDébloqué", 0, 0));
-			
-			shopItem.setItem(1, ShopItem.addItemShop(Material.BOW, 1, null, null, 2, 1));
-			shopItem.setItem(2, ShopItem.addItemShop(Material.CROSSBOW, 1, null, null, 2, 1));
-			shopItem.setItem(3, ShopItem.addItemShop(Material.ARROW, 1, null, null, 2, 1));
-			shopItem.setItem(4, ShopItem.addItemShop(Material.SHIELD, 1, null, null, 2, 1));
+			shopItem.setItem(1, ShopItem.addItemShop(Material.BOW, 1, null, null, 1.08, 0.18));
+			shopItem.setItem(2, ShopItem.addItemShop(Material.CROSSBOW, 1, null, null, 8.68, 1.98));
+			shopItem.setItem(3, ShopItem.addItemShop(Material.ARROW, 1, null, null, 0.72, 0.15));
+			shopItem.setItem(4, ShopItem.addItemShop(Material.SHIELD, 1, null, null, 8, 1));
 
 		}
 		else {
@@ -60,10 +59,10 @@ public class ShopBlacksmith implements Listener {
 		if(player.hasPermission(shopLevel2) == true) {
 			shopItem.setItem(9, ShopItem.addItemShop(Material.YELLOW_TERRACOTTA, 1, "§eNiveau 2", "§7Status: §aDébloqué", 0, 0));
 			
-			shopItem.setItem(10, ShopItem.addItemShop(Material.CHAINMAIL_HELMET, 1, null, null, 2, 1));
-			shopItem.setItem(11, ShopItem.addItemShop(Material.CHAINMAIL_CHESTPLATE, 1, null, null, 2, 1));
-			shopItem.setItem(12, ShopItem.addItemShop(Material.CHAINMAIL_LEGGINGS, 1, null, null, 2, 1));
-			shopItem.setItem(13, ShopItem.addItemShop(Material.CHAINMAIL_BOOTS, 1, null, null, 2, 1));
+			shopItem.setItem(10, ShopItem.addItemShop(Material.CHAINMAIL_HELMET, 1, null, null, 25, 2));
+			shopItem.setItem(11, ShopItem.addItemShop(Material.CHAINMAIL_CHESTPLATE, 1, null, null, 40, 2));
+			shopItem.setItem(12, ShopItem.addItemShop(Material.CHAINMAIL_LEGGINGS, 1, null, null, 35, 0));
+			shopItem.setItem(13, ShopItem.addItemShop(Material.CHAINMAIL_BOOTS, 1, null, null, 20, 4));
 
 		}
 		else {

@@ -24,6 +24,7 @@ import fr.ted.celeskyshop.shops.ShopFarmer;
 import fr.ted.celeskyshop.shops.ShopHero;
 import fr.ted.celeskyshop.shops.ShopMagician;
 import fr.ted.celeskyshop.shops.ShopMiner;
+import fr.ted.celeskyshop.shops.ShopSummoner;
 import net.milkbowl.vault.economy.Economy;
 
 public class ShopCore implements Listener {
@@ -38,7 +39,7 @@ public class ShopCore implements Listener {
 	public boolean shopVerification(String title) {
 		
 		//List of shops
-		String[] shopList = new String[11];
+		String[] shopList = new String[12];
 		shopList[0] = main.getConfig().getString("sellers.Blocks.shopName");
 		shopList[1] = main.getConfig().getString("sellers.Blacksmith.shopName");
 		shopList[2] = main.getConfig().getString("sellers.Carpenter.shopName");
@@ -50,6 +51,7 @@ public class ShopCore implements Listener {
 		shopList[8] = main.getConfig().getString("sellers.Adventurer.shopName");
 		shopList[9] = main.getConfig().getString("sellers.Hero.shopName");
 		shopList[10] = main.getConfig().getString("sellers.Alchemist.shopName");
+		shopList[11] = main.getConfig().getString("sellers.Summoner.shopName");
 
 		
 		//Verification
@@ -116,41 +118,41 @@ public class ShopCore implements Listener {
 			String itemBuyPriceNum = itemBuyPriceArray.replace("§7Achat: §a", "");
 			String itemSellPriceNum = itemSellPriceArray.replace("§7Vente: §c", "");
 			
-			int itemBuyPrice = Integer.parseInt(itemBuyPriceNum);
-			int itemSellPrice = Integer.parseInt(itemSellPriceNum);
+			double itemBuyPrice = Double.parseDouble(itemBuyPriceNum);
+			double itemSellPrice = Double.parseDouble(itemSellPriceNum);
 			
-			int itemBuyPrice1 = itemBuyPrice*1;
-			int itemBuyPrice4 = itemBuyPrice*4;
-			int itemBuyPrice16 = itemBuyPrice*16;
-			int itemBuyPrice32 = itemBuyPrice*32;
-			int itemBuyPrice64 = itemBuyPrice*64;
+			double itemBuyPrice1 = itemBuyPrice*1;
+			double itemBuyPrice4 = itemBuyPrice*4;
+			double itemBuyPrice16 = itemBuyPrice*16;
+			double itemBuyPrice32 = itemBuyPrice*32;
+			double itemBuyPrice64 = itemBuyPrice*64;
 			
-			int itemSellPrice1 = itemSellPrice*1;
-			int itemSellPrice4 = itemSellPrice*4;
-			int itemSellPrice16 = itemSellPrice*16;
-			int itemSellPrice32 = itemSellPrice*32;
-			int itemSellPrice64 = itemSellPrice*64;
+			double itemSellPrice1 = itemSellPrice*1;
+			double itemSellPrice4 = itemSellPrice*4;
+			double itemSellPrice16 = itemSellPrice*16;
+			double itemSellPrice32 = itemSellPrice*32;
+			double itemSellPrice64 = itemSellPrice*64;
 			
-			shopSelectedItem.setItem(29, ShopItem.addItemShop(Material.GREEN_TERRACOTTA, 1, "§aAchat §7§lx1", null, itemBuyPrice1, 0));
-			shopSelectedItem.setItem(30, ShopItem.addItemShop(Material.GREEN_TERRACOTTA, 4, "§aAchat §7§lx4", null, itemBuyPrice4, 0));
-			shopSelectedItem.setItem(31, ShopItem.addItemShop(Material.GREEN_TERRACOTTA, 16, "§aAchat §7§lx16", null, itemBuyPrice16, 0));
-			shopSelectedItem.setItem(32, ShopItem.addItemShop(Material.GREEN_TERRACOTTA, 32, "§aAchat §7§lx32", null, itemBuyPrice32, 0));
-			shopSelectedItem.setItem(33, ShopItem.addItemShop(Material.GREEN_TERRACOTTA, 64, "§aAchat §7§lx64", null, itemBuyPrice64, 0));
+			shopSelectedItem.setItem(29, ShopItem.addItemShop(Material.GREEN_TERRACOTTA, 1, "§aAchat §7§lx1", null, itemBuyPrice1, 0.0));
+			shopSelectedItem.setItem(30, ShopItem.addItemShop(Material.GREEN_TERRACOTTA, 4, "§aAchat §7§lx4", null, itemBuyPrice4, 0.0));
+			shopSelectedItem.setItem(31, ShopItem.addItemShop(Material.GREEN_TERRACOTTA, 16, "§aAchat §7§lx16", null, itemBuyPrice16, 0.0));
+			shopSelectedItem.setItem(32, ShopItem.addItemShop(Material.GREEN_TERRACOTTA, 32, "§aAchat §7§lx32", null, itemBuyPrice32, 0.0));
+			shopSelectedItem.setItem(33, ShopItem.addItemShop(Material.GREEN_TERRACOTTA, 64, "§aAchat §7§lx64", null, itemBuyPrice64, 0.0));
 			
-			shopSelectedItem.setItem(38, ShopItem.addItemShop(Material.RED_TERRACOTTA, 1, "§cVente §7§lx1", null, 0, itemSellPrice1));
-			shopSelectedItem.setItem(39, ShopItem.addItemShop(Material.RED_TERRACOTTA, 4, "§cVente §7§lx4", null, 0, itemSellPrice4));
-			shopSelectedItem.setItem(40, ShopItem.addItemShop(Material.RED_TERRACOTTA, 16, "§cVente §7§lx16", null, 0, itemSellPrice16));
-			shopSelectedItem.setItem(41, ShopItem.addItemShop(Material.RED_TERRACOTTA, 32, "§cVente §7§lx32", null, 0, itemSellPrice32));
-			shopSelectedItem.setItem(42, ShopItem.addItemShop(Material.RED_TERRACOTTA, 64, "§cVente §7§lx64", null, 0, itemSellPrice64));
+			shopSelectedItem.setItem(38, ShopItem.addItemShop(Material.RED_TERRACOTTA, 1, "§cVente §7§lx1", null, 0.0, itemSellPrice1));
+			shopSelectedItem.setItem(39, ShopItem.addItemShop(Material.RED_TERRACOTTA, 4, "§cVente §7§lx4", null, 0.0, itemSellPrice4));
+			shopSelectedItem.setItem(40, ShopItem.addItemShop(Material.RED_TERRACOTTA, 16, "§cVente §7§lx16", null, 0.0, itemSellPrice16));
+			shopSelectedItem.setItem(41, ShopItem.addItemShop(Material.RED_TERRACOTTA, 32, "§cVente §7§lx32", null, 0.0, itemSellPrice32));
+			shopSelectedItem.setItem(42, ShopItem.addItemShop(Material.RED_TERRACOTTA, 64, "§cVente §7§lx64", null, 0.0, itemSellPrice64));
 			
 			//Return Arrow
-			shopSelectedItem.setItem(53, ShopItem.addItemShop(Material.ARROW, 1, "§7Retour", null, 0, 0));
+			shopSelectedItem.setItem(53, ShopItem.addItemShop(Material.ARROW, 1, "§7Retour", null, 0.0, 0.0));
 			
 			//Open chest shop to player
 			player.openInventory(shopSelectedItem);
 			
 		}
-		else if (inventory.getTitle().equals("§aItem " + inventory.getItem(13).getType().toString())) {
+		else if (inventory.getTitle().contains("§aItem ")) {
 			
 			event.setCancelled(true);
 			
@@ -166,7 +168,7 @@ public class ShopCore implements Listener {
 				//Define the price from lore
 				String itemBuyPriceArray = current.getItemMeta().getLore().get(0);
 				String itemBuyPriceNum = itemBuyPriceArray.replace("§7Achat: §a", "");
-				int itemBuyPrice = Integer.parseInt(itemBuyPriceNum);
+				double itemBuyPrice = Double.parseDouble(itemBuyPriceNum);
 				
 				//If player have enough money
 				if(playerMoneyValue >= itemBuyPrice) {
@@ -211,7 +213,7 @@ public class ShopCore implements Listener {
 					//Define the price from lore
 					String itemSellPriceArray = current.getItemMeta().getLore().get(0);
 					String itemSellPriceNum = itemSellPriceArray.replace("§7Vente: §c", "");
-					int itemSellPrice = Integer.parseInt(itemSellPriceNum);
+					double itemSellPrice = Double.parseDouble(itemSellPriceNum);
 					
 					//Get item to Sell
 					ItemStack itemSell = inventory.getItem(13).clone();
@@ -257,7 +259,7 @@ public class ShopCore implements Listener {
 		String OriginalShopName = shopName.replace("§7Shop: ", "");
 		
 		//List of shops
-		String[] shopList = new String[11];
+		String[] shopList = new String[12];
 		shopList[0] = main.getConfig().getString("sellers.Blocks.shopName");
 		shopList[1] = main.getConfig().getString("sellers.Blacksmith.shopName");
 		shopList[2] = main.getConfig().getString("sellers.Carpenter.shopName");
@@ -269,6 +271,7 @@ public class ShopCore implements Listener {
 		shopList[8] = main.getConfig().getString("sellers.Adventurer.shopName");
 		shopList[9] = main.getConfig().getString("sellers.Hero.shopName");
 		shopList[10] = main.getConfig().getString("sellers.Alchemist.shopName");
+		shopList[11] = main.getConfig().getString("sellers.Summoner.shopName");
 		
 		if(OriginalShopName.equals(shopList[0])) {
 			ShopBlocks.shopItemBlocks(main, player);
@@ -302,6 +305,9 @@ public class ShopCore implements Listener {
 		}
 		else if(shopName.equals(shopList[10])) {
 			ShopAlchemist.shopItemAlchemist(main, player);
+		}
+		else if(shopName.equals(shopList[11])) {
+			ShopSummoner.shopItemSummoner(main, player);
 		}
 		else {
 			player.sendMessage("§8[§bCelesky Shop§8] §7Veuillez informer un développeur que le shop §c" + shopName + " §7n'as pas été ajouté à §cShopCore.openShop§7.");
